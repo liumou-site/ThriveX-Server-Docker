@@ -61,7 +61,8 @@ def main():
 
     logging.info("开始替换...")
     replace_in_file("docker-compose.yml", r"DbHost", host)
-    replace_in_file("docker-compose.yml", r"Port3306", port)
+    replace_in_file("docker-compose.yml", r"Port3306", str(port))
+    replace_in_file("docker-compose.yml", r"DbNameThriveX", dbname)
     replace_in_file("docker-compose.yml", r"DbUserThrive", username)
     replace_in_file("docker-compose.yml", r"DB_PASSWORD_ThriveX@123\?", password)
     replace_in_file("docker-compose.yml", r"123456789@qq\.com", email)

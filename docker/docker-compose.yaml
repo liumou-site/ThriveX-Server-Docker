@@ -19,7 +19,7 @@ services:
       ## 设置数据库密码,强烈建议修改(首次启动有效)-必须和前面的数据库用户名一致
       DB_PASSWORD: DB_PASSWORD_ThriveX@123?
       ## 设置数据库端口
-      DB_PORT: 3306
+      DB_PORT: Port3306
       ## 设置邮箱配置
       EMAIL_HOST: smtp.qq.com
       ## 设置邮箱端口
