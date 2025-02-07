@@ -11,13 +11,13 @@ services:
         ipv4_address: 172.178.178.14
     environment:
       ## 设置数据库主机地址
-      DB_HOST: thrive_mysql
+      DB_INFO: DbHost:Port3306/DbNameThriveX
       ## 设置数据库名,强烈建议修改(首次启动有效)-必须和前面的数据库名一致
       DB_NAME: thrive
       ## 设置数据库用户名,强烈建议修改(首次启动有效)-必须和前面的数据库用户名一致
-      DB_USERNAME: thrive
+      DB_USERNAME: DbUserThrive
       ## 设置数据库密码,强烈建议修改(首次启动有效)-必须和前面的数据库用户名一致
-      DB_PASSWORD: ThriveX@123?
+      DB_PASSWORD: DB_PASSWORD_ThriveX@123?
       ## 设置数据库端口
       DB_PORT: 3306
       ## 设置邮箱配置
@@ -27,7 +27,7 @@ services:
       ## 设置邮箱用户名
       EMAIL_USERNAME: 123456789@qq.com
       ## 设置邮箱密码
-      EMAIL_PASSWORD: 123456789
+      EMAIL_PASSWORD: 123456789Password
 
 # 网络配置
 networks:
