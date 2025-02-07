@@ -13,7 +13,7 @@ services:
       ## 设置数据库主机地址
       DB_INFO: DbHost:Port3306/DbNameThriveX
       ## 设置数据库名,强烈建议修改(首次启动有效)-必须和前面的数据库名一致
-      DB_NAME: thrive
+      DB_NAME: DbNameThriveX
       ## 设置数据库用户名,强烈建议修改(首次启动有效)-必须和前面的数据库用户名一致
       DB_USERNAME: DbUserThrive
       ## 设置数据库密码,强烈建议修改(首次启动有效)-必须和前面的数据库用户名一致
