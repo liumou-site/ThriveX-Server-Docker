@@ -28,3 +28,11 @@ services:
       EMAIL_USERNAME: 123456789@qq.com
       ## 设置邮箱密码
       EMAIL_PASSWORD: 123456789
+
+# 网络配置
+networks:
+  thrive_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.178.178.0/24
