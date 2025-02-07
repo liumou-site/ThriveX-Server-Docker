@@ -2,7 +2,7 @@ services:
   # 后端项目
   server:
     container_name: server
-    build: Dockerfile
+    build: docker/
     hostname: server-thrive
     ports:
       - "9003:9003"
