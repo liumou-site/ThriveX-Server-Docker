@@ -1,10 +1,11 @@
 #!/usr/bin/env sh
 set -e
-if [[ ! -f ./docker/docker-compose.yml ]]; then
+src=docker/docker-compose.yaml
+if [[ ! -f ${src} ]]; then
   echo "Not found docker-compose.yml file"
   exit 1
 fi
-cp -r ./docker/docker-compose.yml ./docker-compose.yml
+cp -r ${src} ./docker-compose.yml
 if [[ $? -ne 0 ]]; then
   echo "Copy docker-compose.yml failed"
   exit 1
