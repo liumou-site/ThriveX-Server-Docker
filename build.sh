@@ -29,6 +29,11 @@ read port
 if [[ -z "$port" ]]; then
   port=3306
 fi
+# 检查端口是否为数字
+if ! [[ $port =~ ^[0-9]+$ ]] ; then
+  echo "Port must be a number, please try again."
+  exit 1
+fi
 echo "Please input your database username, Default: thrive (请输入数据库用户名,默认:thrive):"
 read username
 if [[ -z "$username" ]]; then
@@ -38,6 +43,11 @@ echo "Please input your database password(请输入数据库密码):"
 read password
 if [[ -z "$password" ]]; then
   echo "Database password cannot be empty, please try again."
+  exit 1
+fi
+echo $password | grep \|
+if [[ $? -eq 0 ]]; then
+  echo "Database password cannot contain |, please try again."
   exit 1
 fi
 echo "Please input your database name, Default:ThriveX(请输入数据库名称,默认:ThriveX):"
@@ -51,21 +61,32 @@ read email
 if [[ -z "$email" ]]; then
   email="123456789@qq.com"
 fi
+echo $email
+echo $email | grep \|
+if [[ $? -eq 0 ]]; then
+  echo "Email address cannot contain |, please try again."
+  exit 1
+fi
 # 输入邮箱密码
 echo "Please input your email password, Default:123456789(请输入你的邮箱密码):"
 read email_password
 if [[ -z "$email_password" ]]; then
   email_password="123456"
 fi
+echo $email_password | grep \|
+if [[ $? -eq 0 ]]; then
+  echo "Email password cannot contain |, please try again."
+  exit 1
+fi
 # 开始替换
 echo "Start replacing..."
 sed -i "s@DbHost@${host}@" docker-compose.yml
 sed -i "s@Port3306@${port}@" docker-compose.yml
 sed -i "s@DbUserThrive@${username}@" docker-compose.yml
-sed -i "s@DB_PASSWORD_ThriveX@123?@${password}@" docker-compose.yml
+sed -i "s|DB_PASSWORD_ThriveX@123?|${password}|" docker-compose.yml
 # 替换邮箱
-sed -i "s@123456789@qq.com@${email}@" docker-compose.yml
-sed -i "s@123456789Password@${email_password}@" docker-compose.yml
+sed -i "s|123456789@qq.com|${email}|" docker-compose.yml
+sed -i "s|123456789Password|${email_password}|" docker-compose.yml
 docker compose -p thrive up -d --build
 if [[ $? -ne 0 ]]; then
   echo "Build failed"
