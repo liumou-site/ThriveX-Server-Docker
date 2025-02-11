@@ -1,7 +1,7 @@
 # 设置基础镜像
 FROM registry.cn-hangzhou.aliyuncs.com/liuyi778/openjdk:11.0-jre-buster
 # 设置环境变量，存储构建时间（北京时间）
-ENV BUILD_TIME=2025-2-6_18:05:23
+ENV BUILD_TIME=2025-2-11_17:58:04
 
 # 使用 LABEL 指令将构建时间设置为镜像的标签
 LABEL build_time="${BUILD_TIME}"
