@@ -5,7 +5,7 @@ ENV BUILD_TIME=2025-2-11_17:58:04
 
 # 使用 LABEL 指令将构建时间设置为镜像的标签
 LABEL build_time="${BUILD_TIME}"
-LABEL VERSION=2.4.4
+LABEL VERSION=2.4.7
 # 设置工作目录
 WORKDIR /server
 # 设置主机DNS
@@ -29,7 +29,7 @@ ENV EMAIL_USERNAME=33311118881@qq.com
 ## 邮箱授权码（xxxxxxxxxxxxx）
 ENV EMAIL_PASSWORD=xxxxxxxxxxxxx
 # 将jar包复制到工作目录中并拷贝给app.jar
-ADD https://github.com/LiuYuYang01/ThriveX-Server/releases/download/2.4.4/blog.jar /server/server.jar
+ADD https://github.com/LiuYuYang01/ThriveX-Server/releases/download/2.4.7/blog.jar /server/server.jar
 COPY init.sh /server/init.sh
 RUN chmod +x /server/init.sh
 
