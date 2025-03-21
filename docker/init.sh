@@ -34,4 +34,6 @@ echo "---------------------------打印数据库配置--------------------------
 echo ${DB_INFO}
 echo "---------------------------打印数据库配置----------------------------"
 echo "Starting server..."
-java -jar /server/server.jar
+cmd="java -jar blog.jar --PORT=${PORT} --DB_INFO=${DB_INFO} --DB_USERNAME=${DB_USERNAME} --DB_PASSWORD=${DB_PASSWORD} --EMAIL_HOST=${EMAIL_HOST} --EMAIL_PORT=${EMAIL_PORT} --EMAIL_USERNAME=${EMAIL_USERNAME} --EMAIL_PASSWORD=${EMAIL_PASSWORD}"
+echo "Running: $cmd"
+eval $cmd
